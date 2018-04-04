@@ -22,9 +22,9 @@ $(function() {
       //if window is tall
     } else if (windowRatio < 0.45) {
       console.log("T A L L B O Y E")
-      newCat('/img/tall/longboye.jpg');
+      newCat('img/tall/longboye.jpg');
       if (window.innerWidth < 300 && windowRatio < 0.25) {
-        newCat('/img/tall/reallytallboye.jpg');
+        newCat('img/tall/reallytallboye.jpg');
       }
       //if window is square-ish but wide
     } else if (windowRatio < 2 && windowRatio >= 0.9) {
