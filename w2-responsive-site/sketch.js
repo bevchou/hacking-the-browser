@@ -13,9 +13,9 @@ $(function() {
       console.log("W I D E B O Y E")
       //determine images shown based on size
       if (window.innerHeight >= 300) {
-        newCat('/img/wide/widestwideboye.jpg');
+        newCat('img/wide/widestwideboye.jpg');
       } else if (window.innerHeight < 300 && window.innerHeight > 200) {
-        newCat('/img/wide/wideboye.jpg');
+        newCat('img/wide/wideboye.jpg');
       } else if (window.innerHeight <= 200 && windowRatio > 3.4) {
         newCat('img/wide/thinwideboye.jpg');
       }
