@@ -70,27 +70,3 @@ function fillHeight() {
     'height': '100vh'
   });
 }
-
-
-
-
-function makeURL(nameArray, size) {
-  for (let k = 0; k < nameArray.length; k++) {
-    nameArray[k] = 'url(/img/' + size + '/' + nameArray[k] + ')';
-  }
-  return nameArray;
-}
-
-function getImage(newWidth, newHeight) {
-  if (newWidth <= 2500 && newWidth >= 1800) {
-
-  }
-}
-
-function setBool(inputWidth, inputHeight, widthMin, widthMax, heightMin, heightMax) {
-  if (inputWidth >= widthMin && inputWidth <= widthMax) {
-    if (inputHeight >= heightMin && inputHeight <= heightMax) {
-      //??????
-    }
-  }
-}
