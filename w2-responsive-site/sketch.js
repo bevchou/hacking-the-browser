@@ -11,7 +11,6 @@ $(function() {
     //if window is wide
     if (windowRatio >= 2) {
       console.log("W I D E B O Y E")
-      fillWidth();
       //determine images shown based on size
       if (window.innerHeight >= 300) {
         newCat('/img/wide/widestwideboye.jpg');
@@ -23,7 +22,6 @@ $(function() {
       //if window is tall
     } else if (windowRatio < 0.45) {
       console.log("T A L L B O Y E")
-      fillHeight();
       newCat('/img/tall/longboye.jpg');
       if (window.innerWidth < 300 && windowRatio < 0.25) {
         newCat('/img/tall/reallytallboye.jpg');
@@ -31,7 +29,6 @@ $(function() {
       //if window is square-ish but wide
     } else if (windowRatio < 2 && windowRatio >= 0.9) {
       console.log("midsize wide!");
-      fillWidth();
       if (window.innerHeight >= 1000) {
         newCat('img/full/spaceboye.jpg');
       } else if (window.innerHeight < 1000 && window.innerHeight > 800) {
@@ -58,7 +55,6 @@ $(function() {
       //if window is square-ish but tall
     } else if (windowRatio >= .45 && windowRatio < 0.9) {
       console.log("midside tall!");
-      fillHeight();
       if (window.innerWidth >= 1000) {
         newCat('img/full/spaceboye.jpg');
       } else if (window.innerWidth <= 450 && window.innerWidth > 350){
@@ -81,16 +77,16 @@ function newCat(url) {
   $('#cat').attr('src', url);
 }
 
-function fillWidth() {
-  $('#cat').css({
-    'width': '100vw',
-    'height': ''
-  });
-}
-
-function fillHeight() {
-  $('#cat').css({
-    'width': '',
-    'height': '100vh'
-  });
-}
+// function fillWidth() {
+//   $('#cat').css({
+//     'width': '100vw',
+//     'height': ''
+//   });
+// }
+//
+// function fillHeight() {
+//   $('#cat').css({
+//     'width': '',
+//     'height': '100vh'
+//   });
+// }
