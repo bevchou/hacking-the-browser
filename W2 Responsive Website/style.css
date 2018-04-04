@@ -1,0 +1,32 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  font-family: 'Rubik', sans-serif;
+  font-size: 30px;
+  text-align: center;
+}
+
+#start {
+  display: inline-block;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+p {
+  margin: 5px 0 5px 0;
+}
+
+#intro {
+  max-width: 400px;
+  width: 70%;
+}
+
+#cat {
+  position: fixed;
+  top: 0;
+  left:0;
+}
