@@ -22,4 +22,4 @@ x.innerHTML = "<" + t + ">" + x.innerHTML + "</" + t + ">";
 void(0);
 ```
 
-A quick analysis - Jesse Ruderman is selecting the entire document body's innerHTML. This is essentially adding "<button>" before all the content, and also adding "</button>" after all the content. Finally the code returns nothing since the function is not returning a specific value. That's how he makes the whole page a button. 
+A quick analysis - Jesse Ruderman is selecting the entire document body's innerHTML. This is essentially adding button tag before all the content, and also adding button tag after all the content. Finally the code returns nothing since the function is not returning a specific value. That's how he makes the whole page a button. 
