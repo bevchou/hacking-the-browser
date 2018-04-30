@@ -29,7 +29,9 @@ I started by looking at the manifest.json file. For the most part, it looks pret
 }
 ```
 
-I [looked this up on Stack Overflow](https://stackoverflow.com/questions/22735525/install-chrome-extension-through-windows-registry), and it is used when you want your extension to be installed through the Windows registry. It's not super relevant to the extension's function, but it's good to know if you want your extension to work for as many users as possible.
+UPDATE: I got some feedback from Cory and update_url is actually used to tell Chrome if there is a new update for the extension, and it only works for extensions that are in the Chrome Web Store. The documentation is [here](https://developer.chrome.com/extensions/hosting).   
+
+ ~~I [looked this up on Stack Overflow](https://stackoverflow.com/questions/22735525/install-chrome-extension-through-windows-registry), and it is used when you want your extension to be installed through the Windows registry. It's not super relevant to the extension's function, but it's good to know if you want your extension to work for as many users as possible.~~
 
 The ["chrome_url_overrides"](https://developer.chrome.com/extensions/override) is used to redirect the new tab to a different page. So in this case, instead of going to the standard URL - "chrome://newtab" - it will take you to "popup.html".
 
