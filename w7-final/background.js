@@ -1,3 +1,15 @@
+//listen for messages
+chrome.runtime.onMessage.addListener(function(data, sender, sendResponse) {
+  console.log("message received!");
+  console.log(data);
+});
+
+
+
+
+
+
+
 //THIS IS BASED OFF OF CORY FORSYTH'S FIREBASE CLICKS CHROME EXTENSION FROM THE HACKING THE BROWSER CLASS AT ITP NYU
 
 console.log("beverly test firebase extension");
