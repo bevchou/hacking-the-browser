@@ -1,18 +1,19 @@
-//listen for messages
+//listen for messages from popup.js
 chrome.runtime.onMessage.addListener(function(data, sender, sendResponse) {
+  //got time and message data
   console.log("message received!");
   console.log(data);
+  //get URL
+  chrome.tabs.getSelected(null, function(tab) {
+      console.log(tab.url);
+  });
 });
-
-
-
-
 
 
 
 //THIS IS BASED OFF OF CORY FORSYTH'S FIREBASE CLICKS CHROME EXTENSION FROM THE HACKING THE BROWSER CLASS AT ITP NYU
 
-console.log("beverly test firebase extension");
+console.log("beverly htb - background.js");
 
 // Initialize Firebase
 //this is beverly's firebase API
@@ -35,6 +36,11 @@ firebase.initializeApp(config);
 
 // start listening for changes to clickCount, and
 // update the badge whenever the count changes
+
+
+
+
+
 // console.log("Adding Firebase listener");
 // var database = firebase.database();
 // var ref = database.ref("clickCount");
