@@ -11,9 +11,10 @@
   },
 
   "background": {
-    "scripts": ["jquery.js", "firebase.js", "background.js"]
+    "scripts": ["firebase.js", "background.js"]
   },
   "permissions": [
-    "tabs"
+    "tabs",
+    "<all_urls>"
   ]
 }

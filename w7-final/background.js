@@ -1,22 +1,14 @@
-//listen for messages from popup.js
-chrome.runtime.onMessage.addListener(function(data, sender, sendResponse) {
-  //got time and message data
-  console.log("message received!");
-  console.log(data);
-  //get URL
-  chrome.tabs.getSelected(null, function(tab) {
-      console.log(tab.url);
-  });
-});
-
-
+let sendToDB;
+let currentURL;
+let currentTime;
+let currentMsg;
 
 //THIS IS BASED OFF OF CORY FORSYTH'S FIREBASE CLICKS CHROME EXTENSION FROM THE HACKING THE BROWSER CLASS AT ITP NYU
 
 console.log("beverly htb - background.js");
 
-// Initialize Firebase
 //this is beverly's firebase API
+// Initialize Firebase
 var config = {
   apiKey: "AIzaSyDMFt6RHI2Bp3yWyN-AzyAw3c_TiCTEP1o",
   authDomain: "hacking-browser-final.firebaseapp.com",
@@ -25,21 +17,54 @@ var config = {
   storageBucket: "hacking-browser-final.appspot.com",
   messagingSenderId: "770585640212"
 };
-
+// Initialize Firebase
+firebase.initializeApp(config);
 
 // The "firebase" variable is provided by the "firebase.js" script, which should
 // have been listed in the manifest.json so that it loads before this script.
-firebase.initializeApp(config);
+var database = firebase.database();
+var ref = database.ref("something");
+ref.on("value", function(snapshot) {
+  let newTime = snapshot.val();
+});
 
 // Learn more about the Firebase JavaScript API
 // at this url: https://firebase.google.com/docs/database/web/read-and-write
 
-// start listening for changes to clickCount, and
-// update the badge whenever the count changes
+
+//listen for messages from popup.js
+chrome.runtime.onMessage.addListener(function(data, sender, sendResponse) {
+  //got time and message data
+  console.log("message received!");
+  currentTime = data.time;
+  currentMsg = data.msg;
+  console.log(currentTime);
+  console.log(currentMsg);
+  //get URL of selected tab
+  chrome.tabs.getSelected(null, function(tab) {
+    currentURL = tab.url;
+    console.log(currentURL);
+  });
+
+  var database = firebase.database();
+  var ref = database.ref("something");
+  ref.once("value").then(function(snapshot){
+    let newTime = snapshot.val();
+    ref.set(data.time);
+  });
+
+});
 
 
+// let ref = database.ref("URL");
 
-
+// function writeUserData(site, time, msg) {
+//   firebase.database().ref('site/').set({
+//     site: currentURL,
+//     time: currentTime,
+//     msg : currentMsg
+//   });
+// }
 
 // console.log("Adding Firebase listener");
 // var database = firebase.database();
