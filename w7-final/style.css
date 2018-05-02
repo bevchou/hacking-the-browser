@@ -1,0 +1,8 @@
+#allMsgs {
+  position: absolute;
+  width: 200px;
+  padding: 10px;
+  top: 100px;
+  left: 20px;
+  background-color: blue;
+}

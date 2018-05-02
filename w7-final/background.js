@@ -106,6 +106,12 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
       action: "postmsg",
       array: msgToPost
     }, function(response) {});
+
+    chrome.tabs.insertCSS(tabs[0].id, {
+      file: "style.css"
+    }, function() {
+      console.log("added css");
+    });
   });
 
 

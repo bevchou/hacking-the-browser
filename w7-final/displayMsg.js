@@ -6,21 +6,27 @@ chrome.extension.onMessage.addListener(function(msg, sender, sendResponse) {
     let incomingMsg = msg.array;
     console.log(msg.array);
 
-    displaySetup();
-
-    //loop through the message array
-    for (let i = 0; i < incomingMsg.length; i++) {
-      appendPost(incomingMsg[i].time, incomingMsg[i].msg);
+    if (msg.array.length == 0) {
+      // document.getElementById("allMsgs").remove();
+      console.log('nothing to show!')
+    } else {
+      //add the div for all messages
+      displaySetup();
+      //loop through the message array + add to allMsgs div
+      for (let i = 0; i < incomingMsg.length; i++) {
+        appendPost(incomingMsg[i].time, incomingMsg[i].msg);
+      }
     }
-
   }
 });
 
 
 //add div to where the posts will go
 function displaySetup() {
-  document.body.innerHTML += '<div id="allMsgs" style="position:absolute;width:200px; padding: 10px; top: 100px; left: 20px; background-color:yellow"></div>';
+  document.body.innerHTML += '<div id="allMsgs"></div>';
 }
+
+// background-color:yellow;position:absolute;width:200px; padding: 10px; top: 100px; left: 20px;
 
 //add posts to the #allMsgs div
 function appendPost(time, msgText) {
