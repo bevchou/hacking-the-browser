@@ -2,6 +2,8 @@ let currentURL;
 let currentTime;
 let currentMsg;
 
+let keys = [];
+
 //THIS IS BASED OFF OF CORY FORSYTH'S FIREBASE CLICKS CHROME EXTENSION FROM THE HACKING THE BROWSER CLASS AT ITP NYU
 
 console.log("beverly htb - background.js");
@@ -70,18 +72,39 @@ chrome.runtime.onMessage.addListener(function(data, sender, sendResponse) {
 //post the data to the website in text boxes (divs)
 
 
-//get the tab the user is on
+//each time the user loads a new site
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
   if (changeInfo.status !== 'complete') {
     return;
   }
+  //get the URL
   var activeURL = tab.url;
   console.log('now on this site: ' + activeURL);
 
+  //set empty the keys array
+  keys = [];
+
+  //query database for data that match the active URL
   var ref = firebase.database().ref("test");
   ref.orderByChild("site").equalTo(activeURL).on("child_added", function(snapshot) {
-    console.log(snapshot.key);
+    keys.push(snapshot.key);
+    console.log(keys);
   });
+
+  //get data under each key in the key array
+  for (let i = 0; i < keys.length; i++) {
+    var refForData = firebase.database().ref("/test/" + keys[i]);
+    refForData.once("value").then(function(snapshot) {
+      let msgToPost = snapshot.val();
+      console.log(msgToPost);
+    });
+  }
+
+
+
+
+
+  //send data to the browser window
 
 });
 
