@@ -19,13 +19,12 @@ chrome.extension.onMessage.addListener(function(msg, sender, sendResponse) {
 
 //add div to where the posts will go
 function displaySetup() {
-  document.body.innerHTML += '<div id="allMsgs" style="position:absolute;width:200px; top: 100px; left: 20px; background-color:red">TEST HELLO</div>';
+  document.body.innerHTML += '<div id="allMsgs" style="position:absolute;width:200px; padding: 10px; top: 100px; left: 20px; background-color:yellow"></div>';
 }
 
 //add posts to the #allMsgs div
 function appendPost(time, msgText) {
-
-
-
-  $("#allMsgs").append(postHTML);
+  postHTML = "<div><b>" + time + "</b><p>" + msgText + "</p></div>"
+  // document.getElementById('allMsgs').innerHTML += postHTML;
+  document.getElementById('allMsgs').innerHTML += postHTML;
 }
