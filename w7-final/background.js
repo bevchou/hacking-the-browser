@@ -57,17 +57,13 @@ chrome.runtime.onMessage.addListener(function(data, sender, sendResponse) {
     var database = firebase.database();
     var ref = database.ref("test");
     ref.push(newData);
-    // ref.once("value").then(function(snapshot) {
-    //   let newSite = snapshot.val();
-    //   console.log(newSite);
-    //   ref.set(currentURL);
-    // });
   });
 
 
 
 });
 
+//PSEUDOCODE FOR MY RUBBER DUCK (:
 //get active URL of website
 //query this url in the firebase database
 //post the data to the website in text boxes (divs)
@@ -101,7 +97,7 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
       msgToPost.push(snapshot.val());
     });
   }
-  //send array to content script
+  //send array of msg data to content script
   chrome.tabs.query({
     active: true,
     currentWindow: true
@@ -113,21 +109,9 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
   });
 
 
-  //send data to the browser window
+  //run the content script in the tab
   chrome.tabs.executeScript(null, {
     file: "displayMsg.js"
   });
 
 });
-
-
-
-
-
-
-
-
-
-function postToSite() {
-
-}
