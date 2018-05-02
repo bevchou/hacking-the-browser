@@ -3,6 +3,7 @@ let currentTime;
 let currentMsg;
 
 let keys = [];
+let msgToPost = [];
 
 //THIS IS BASED OFF OF CORY FORSYTH'S FIREBASE CLICKS CHROME EXTENSION FROM THE HACKING THE BROWSER CLASS AT ITP NYU
 
@@ -83,28 +84,39 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 
   //set empty the keys array
   keys = [];
+  //set empty the messages array
+  msgToPost = [];
 
   //query database for data that match the active URL
   var ref = firebase.database().ref("test");
   ref.orderByChild("site").equalTo(activeURL).on("child_added", function(snapshot) {
     keys.push(snapshot.key);
-    console.log(keys);
   });
+  console.log(keys);
 
   //get data under each key in the key array
   for (let i = 0; i < keys.length; i++) {
     var refForData = firebase.database().ref("/test/" + keys[i]);
     refForData.once("value").then(function(snapshot) {
-      let msgToPost = snapshot.val();
-      console.log(msgToPost);
+      msgToPost.push(snapshot.val());
     });
   }
-
-
-
+  //send array to content script
+  chrome.tabs.query({
+    active: true,
+    currentWindow: true
+  }, function(tabs) {
+    chrome.tabs.sendMessage(tabs[0].id, {
+      action: "postmsg",
+      array: msgToPost
+    }, function(response) {});
+  });
 
 
   //send data to the browser window
+  chrome.tabs.executeScript(null, {
+    file: "displayMsg.js"
+  });
 
 });
 
