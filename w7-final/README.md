@@ -1,6 +1,9 @@
 ## Beverly's Hacking the Browser Final
 
-[download the chrome extension here](../w7-final-post-anywhere.crx)
+[download the chrome extension here](../w7-final-internet-notes-extension.crx)
+
+#### What is it?
+Write a note and post it to any website. All users with the extension can see messages from other users at the URLs where they are posted.
 
 #### How to Install
 1. Download from the link above

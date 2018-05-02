@@ -1,8 +1,8 @@
 {
-  "name": "post anywhere",
+  "name": "internet notes",
   "version": "1.0",
   "manifest_version": 2,
-  "description": "Write a message and post it to any website - all users with the extension can see messages from other users at that URL. Made by Beverly.",
+  "description": "Write a note and post it to any website - all users with the extension can see messages from other users at that URL. Made by Beverly.",
 
   "content_security_policy": "script-src 'self' https://cdn.firebase.com https://*.firebaseio.com; object-src 'self'",
 
