@@ -1,4 +1,3 @@
-let sendToDB;
 let currentURL;
 let currentTime;
 let currentMsg;
@@ -66,43 +65,34 @@ chrome.runtime.onMessage.addListener(function(data, sender, sendResponse) {
 
 });
 
+//get active URL of website
+//query this url in the firebase database
+//post the data to the website in text boxes (divs)
 
-// let ref = database.ref("URL");
 
-// function writeUserData(site, time, msg) {
-//   firebase.database().ref('site/').set({
-//     site: currentURL,
-//     time: currentTime,
-//     msg : currentMsg
-//   });
-// }
+//get the tab the user is on
+chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+  if (changeInfo.status !== 'complete') {
+    return;
+  }
+  var activeURL = tab.url;
+  console.log('now on this site: ' + activeURL);
 
-// console.log("Adding Firebase listener");
-// var database = firebase.database();
-// var ref = database.ref("clickCount");
-// ref.on("value", function(snapshot) {
-//   var clickCount = snapshot.val();
-//   console.log("Value of clickCount changed to:", clickCount);
-//
-//   // setBadgeText requires a "string" property, not a number,
-//   // so convert the clickCount into a string:
-//   var clickCountString = "" + clickCount;
-//   chrome.browserAction.setBadgeText({ text: clickCountString });
-// });
-//
-// // Add a click listener for the browser action. Increment
-// // the clickCount each time anyone clicks their browser action.
-// chrome.browserAction.onClicked.addListener(function() {
-//   console.log("Clicked browser action");
-//
-//   var database = firebase.database();
-//   var ref = database.ref("clickCount");
-//
-//   // Read the most-recent clickCount value once...
-//   ref.once("value").then(function(snapshot) {
-//     var clickCount = snapshot.val();
-//
-//     // ... and then increment that value
-//     ref.set(clickCount + 1);
-//   });
-// });
+  // var ref = firebase.database().ref("test");
+  // ref.orderByChild("site").equalTo(activeURL).on("child_added", function(snapshot) {
+  //   console.log(snapshot.key);
+  // });
+
+});
+
+
+
+
+
+
+
+
+
+function postToSite() {
+
+}
