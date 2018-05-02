@@ -23,9 +23,9 @@ firebase.initializeApp(config);
 // The "firebase" variable is provided by the "firebase.js" script, which should
 // have been listed in the manifest.json so that it loads before this script.
 var database = firebase.database();
-var ref = database.ref("something");
+var ref = database.ref("test");
 ref.on("value", function(snapshot) {
-  let newTime = snapshot.val();
+  let newSite = snapshot.val();
 });
 
 // Learn more about the Firebase JavaScript API
@@ -44,14 +44,25 @@ chrome.runtime.onMessage.addListener(function(data, sender, sendResponse) {
   chrome.tabs.getSelected(null, function(tab) {
     currentURL = tab.url;
     console.log(currentURL);
+    //put all the data into a JSON
+    let newData = {
+      time: currentTime,
+      msg: currentMsg,
+      site: currentURL
+    };
+    console.log(newData);
+    //push to firebase
+    var database = firebase.database();
+    var ref = database.ref("test");
+    ref.push(newData);
+    // ref.once("value").then(function(snapshot) {
+    //   let newSite = snapshot.val();
+    //   console.log(newSite);
+    //   ref.set(currentURL);
+    // });
   });
 
-  var database = firebase.database();
-  var ref = database.ref("something");
-  ref.once("value").then(function(snapshot){
-    let newTime = snapshot.val();
-    ref.set(data.time);
-  });
+
 
 });
 

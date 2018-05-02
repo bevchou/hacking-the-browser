@@ -4,6 +4,7 @@
   "manifest_version": 2,
   "description": "Write a message and stick it to any website - all users with the extension will be able to see messages from all other users posted on that URL",
 
+  "content_security_policy": "script-src 'self' https://cdn.firebase.com https://*.firebaseio.com; object-src 'self'",
 
   "browser_action": {
     "default_title": "click me to add a note",
