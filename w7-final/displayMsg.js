@@ -12,11 +12,12 @@ chrome.extension.onMessage.addListener(function(msg, sender, sendResponse) {
     } else {
       //add the div for all messages
       displaySetup();
-      //loop through the message array + add to allMsgs div
+      //loop through the message array + add to allMsgs
       for (let i = 0; i < incomingMsg.length; i++) {
         appendPost(incomingMsg[i].time, incomingMsg[i].msg);
       }
     }
+
   }
 });
 
@@ -31,6 +32,5 @@ function displaySetup() {
 //add posts to the #allMsgs div
 function appendPost(time, msgText) {
   postHTML = "<div><b>" + time + "</b><p>" + msgText + "</p></div>"
-  // document.getElementById('allMsgs').innerHTML += postHTML;
   document.getElementById('allMsgs').innerHTML += postHTML;
 }

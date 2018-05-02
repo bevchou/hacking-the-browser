@@ -97,16 +97,18 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
       msgToPost.push(snapshot.val());
     });
   }
-  //send array of msg data to content script
+
+  //find the active tab
   chrome.tabs.query({
     active: true,
     currentWindow: true
   }, function(tabs) {
+    //send array of msg data to content script
     chrome.tabs.sendMessage(tabs[0].id, {
       action: "postmsg",
       array: msgToPost
     }, function(response) {});
-
+    //inject css into active tab
     chrome.tabs.insertCSS(tabs[0].id, {
       file: "style.css"
     }, function() {
