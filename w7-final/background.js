@@ -78,10 +78,10 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
   var activeURL = tab.url;
   console.log('now on this site: ' + activeURL);
 
-  // var ref = firebase.database().ref("test");
-  // ref.orderByChild("site").equalTo(activeURL).on("child_added", function(snapshot) {
-  //   console.log(snapshot.key);
-  // });
+  var ref = firebase.database().ref("test");
+  ref.orderByChild("site").equalTo(activeURL).on("child_added", function(snapshot) {
+    console.log(snapshot.key);
+  });
 
 });
 
