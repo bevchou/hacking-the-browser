@@ -63,7 +63,7 @@ chrome.runtime.onMessage.addListener(function(data, sender, sendResponse) {
 
 });
 
-//PSEUDOCODE FOR MY RUBBER DUCK (:
+//PSEUDOCODE 
 //get active URL of website
 //query this url in the firebase database
 //post the data to the website in text boxes (divs)
