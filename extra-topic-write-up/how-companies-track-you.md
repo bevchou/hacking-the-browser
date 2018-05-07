@@ -37,7 +37,7 @@ Take a look at [Evercookie](https://samy.pl/evercookie/), which is an API to cre
 
 ## What do I do about this?
 
-First of all, these is a lot of info that we voluntarily give to companies and websites. Like when we sign up for Facebook and other social media sites, they often ask for your e-mail, birthday, and other kinds of personal info. Once you're on these sites, they can also see everything you do on their platform. If you're concerned you might consider avoiding voluntarily giving up your info.
+First of all, these is a lot of info that we voluntarily give to companies and websites. Like when we sign up for Facebook and other social media sites, they often ask for your e-mail, birthday, and other kinds of personal info. Once you're on these sites, they can also see everything you do on their platform. 
 
 You can also see which cookies are being used on each site by clicking on the info button in the address bar of chrome. Here are examples of HTTPS and HTTP sites.
 
@@ -48,7 +48,9 @@ When you use https sites, the info going between your browser and the website is
 
 You could also use an extension to prevent unwanted scripts from running on websites. This could help to limit scripts that track your activity. [Scriptsafe](https://chrome.google.com/webstore/detail/scriptsafe/oiigbmnaadbkfbmpbfijlflahbdbdgdf) is a popular one.
 
-You can also prevent cookies from being stored by browsing the web in private mode. There are many more options, and if you are concerned about companies tracking, I would recommend looking at more options! 
+You can also prevent cookies from being stored by browsing the web in private mode.
+
+There are many more options, and if you are concerned about companies tracking, I would recommend looking at more options!
 
 ## References
 * [Here's All the Data Collected From You as You Browse the Web by David Nield](https://fieldguide.gizmodo.com/heres-all-the-data-collected-from-you-as-you-browse-the-1820779304)
